@@ -16,6 +16,7 @@
             "outputPath": "dist/my-portfolio",
             "index": "src/index.html",
             "browser": "src/main.ts",
+            "baseHref": "/my-portfolio/",
             "polyfills": [
               "zone.js"
             ],
@@ -92,5 +93,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
