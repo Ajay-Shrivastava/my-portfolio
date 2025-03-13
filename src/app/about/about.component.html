@@ -1,0 +1,31 @@
+<div class="header">
+    <div class="tabs">
+        <div class="tab" [ngClass]="{'active': isActiveTab('/home')}"  (click)="switchTab('home')">
+            HOME      
+        </div>
+        <div class="tab" [ngClass]="{'active': isActiveTab('/about')}" (click)="switchTab('about')">
+            ABOUT      
+        </div>
+        <div class="tab" [ngClass]="{'active': isActiveTab('/projects')}" (click)="switchTab('projects')">
+            PROJECTS      
+        </div>
+        <div class="tab" [ngClass]="{'active': isActiveTab('/concepts')}" (click)="switchTab('concepts')">
+            CONCEPTS
+        </div>
+        <div class="tab" [ngClass]="{'active': isActiveTab('/contact')}" (click)="switchTab('contact')">
+            CONTACT
+        </div>
+        <div class="tab" [ngClass]="{'active': isActiveTab('/blogs')}" (click)="switchTab('blogs')">
+            BLOGS
+        </div>
+    </div>
+</div>
+
+<div class="pagecontent">
+    <div class="aboutme">
+        <img class="personImg" src="person.png" width="20%">
+        <div class="aboutmetxt">
+            Hi, My Name is Ajay Shrivastava. I am a full stack developer. I have been working in this field for the past 5 years. I have worked on many projects and have gained a lot of experience. I am passionate about web application development & AI and I love to learn new things. I am always looking for new challenges and opportunities to grow. I am a hardworking and dedicated person who is always ready to take on new challenges. I am a team player and I work well with others. I am always looking for ways to improve my skills and to grow as a developer.
+        </div>
+    </div>
+</div>

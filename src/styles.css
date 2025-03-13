@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Baumans&family=Salsa&display=swap');
+
 body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    background: linear-gradient(140deg, #ffdf61, #53d7ff);
+    /* background: linear-gradient(140deg, #ffdf61, #53d7ff); */
+    background: linear-gradient(140deg, #1dc7dd, antiquewhite 45%);
   }

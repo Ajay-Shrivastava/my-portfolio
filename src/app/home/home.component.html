@@ -1,26 +1,48 @@
+<div class="header" [ngClass]="{'switchpage': isSwitchedPage()}">
+    <div class="tabs">
+        <div class="tab active">
+            HOME      
+        </div>
+        <div class="tab" >
+            ABOUT      
+        </div>
+        <div class="tab">
+            PROJECTS      
+        </div>
+        <div class="tab">
+            CONCEPTS
+        </div>
+        <div class="tab">
+            CONTACT
+        </div>
+        <div class="tab">
+            BLOGS
+        </div>
+    </div>
+</div>
+
 <div class="pagecontent">
     <div class="leftcontent">
         <div class="contenttxt">
-            <h1>Welcome</h1>
-            <p>Hello, I'm Ajay Shrivastava</p>
+            <div class="textcontent">
+                <span class="title">Hy, I'm Ajay Shrivastava</span>
+                <span class="subtitle">Welcome to my portfolio</span>
+            </div>
             <div class="cards">
-                <div class="card">
-                    <h3>Web Developer</h3>
+                <div class="card" (click)="swichPage('about')">
+                    <h3>ABOUT ME</h3>
                 </div>
-                <div class="card">
-                    <h3>Designer</h3>
+                <div class="card" (click)="swichPage('projects')">
+                    <h3>PROJECTS</h3>
                 </div>
-                <div class="card">
-                    <h3>Photographer</h3>
+                <div class="card" (click)="swichPage('concepts')">
+                    <h3>CONCEPTS</h3>
                 </div>
-                <div class="card">
-                    <h3>Web Developer</h3>
+                <div class="card" (click)="swichPage('contect')">
+                    <h3>CONTACT ME</h3>
                 </div>
-                <div class="card">
-                    <h3>Designer</h3>
-                </div>
-                <div class="card">
-                    <h3>Photographer</h3>
+                <div class="card" (click)="swichPage('blog')">
+                    <h3>BLOG</h3>
                 </div>
             </div>
         </div>
