@@ -1,22 +1,28 @@
 <div class="header">
     <div class="tabs">
         <div class="tab" [ngClass]="{'active': isActiveTab('/home')}"  (click)="switchTab('home')">
+            <img class="img_icon" src="home_icon.png">
             HOME      
         </div>
         <div class="tab" [ngClass]="{'active': isActiveTab('/about')}" (click)="switchTab('about')">
+            <img class="img_icon" src="person_icon.png" width="24px">
             ABOUT      
         </div>
         <div class="tab" [ngClass]="{'active': isActiveTab('/projects')}" (click)="switchTab('projects')">
+            <img class="img_icon" src="projects_icon.png">
             PROJECTS      
         </div>
         <div class="tab" [ngClass]="{'active': isActiveTab('/concepts')}" (click)="switchTab('concepts')">
+            <img class="img_icon" src="concept_icon.png">
             CONCEPTS
         </div>
-        <div class="tab" [ngClass]="{'active': isActiveTab('/contact')}" (click)="switchTab('contact')">
-            CONTACT
-        </div>
         <div class="tab" [ngClass]="{'active': isActiveTab('/blogs')}" (click)="switchTab('blogs')">
+            <img class="img_icon" src="blog_icon.png">
             BLOGS
+        </div>
+        <div class="tab" [ngClass]="{'active': isActiveTab('/contact')}" (click)="switchTab('contact')">
+            <img class="img_icon" src="contact_icon.png" width="19px">
+            CONTACT
         </div>
     </div>
 </div>
@@ -26,6 +32,68 @@
         <img class="personImg" src="person.png" width="20%">
         <div class="aboutmetxt">
             Hi, My Name is Ajay Shrivastava. I am a full stack developer. I have been working in this field for the past 5 years. I have worked on many projects and have gained a lot of experience. I am passionate about web application development & AI and I love to learn new things. I am always looking for new challenges and opportunities to grow. I am a hardworking and dedicated person who is always ready to take on new challenges. I am a team player and I work well with others. I am always looking for ways to improve my skills and to grow as a developer.
+        </div>
+    </div>
+</div>
+
+<div class="skills">
+    <span class="skilltitle">SKILLS</span>
+    <div class="skill">
+        <div class="skillCard">
+            <img class="skillimg" src="#" width="50px">
+            <span class="skillname">.NET</span>
+        </div>
+        <div class="skillCard">
+            <img class="skillimg" src="#" width="50px">
+            <span class="skillname">Angular</span>
+        </div>
+        <div class="skillCard">
+            <img class="skillimg" src="#" width="50px">
+            <span class="skillname">Azure</span>
+        </div>
+        <div class="skillCard">
+            <img class="skillimg" src="#" width="50px">
+            <span class="skillname">Azure Devops</span>
+        </div>
+        <div class="skillCard">
+            <img class="skillimg" src="#" width="50px">
+            <span class="skillname">Docker</span>
+        </div>
+        <div class="skillCard">
+            <img class="skillimg" src="#" width="50px">
+            <span class="skillname">Dapr</span>
+        </div>
+        <div class="skillCard">
+            <img class="skillimg" src="#" width="50px">
+            <span class="skillname">C#</span>
+        </div>
+        <div class="skillCard">
+            <img class="skillimg" src="#" width="50px">
+            <span class="skillname">GitHub</span>
+        </div>
+        <div class="skillCard">
+            <img class="skillimg" src="#" width="50px">
+            <span class="skillname">GitHub Actions</span>
+        </div>
+        <div class="skillCard">
+            <img class="skillimg" src="#" width="50px">
+            <span class="skillname">Terraform</span>
+        </div>
+        <div class="skillCard">
+            <img class="skillimg" src="#" width="50px">
+            <span class="skillname">Kubernetes</span>
+        </div>
+        <div class="skillCard">
+            <img class="skillimg" src="#" width="50px">
+            <span class="skillname">SQL</span>
+        </div>
+        <div class="skillCard">
+            <img class="skillimg" src="#" width="50px">
+            <span class="skillname">LINQ</span>
+        </div>
+        <div class="skillCard">
+            <img class="skillimg" src="#" width="50px">
+            <span class="skillname">Entity Framework</span>
         </div>
     </div>
 </div>
