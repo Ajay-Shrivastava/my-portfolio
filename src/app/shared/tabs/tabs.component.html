@@ -1,0 +1,28 @@
+<div class="header" [ngClass]="{'showHeader': showHeader, 'hideHeader': hideHeader, 'noHeader': noHeader }">
+    <div class="tabs">
+        <div class="tab" [ngClass]="{'active': isActiveTab('/home')}"  (click)="switchTab('home')">
+            <img class="img_icon" src="home_icon.png">
+            HOME      
+        </div>
+        <div class="tab" [ngClass]="{'active': isActiveTab('/about')}" (click)="switchTab('about')">
+            <img class="img_icon" src="person_icon.png" width="24px">
+            ABOUT      
+        </div>
+        <div class="tab" [ngClass]="{'active': isActiveTab('/projects')}" (click)="switchTab('projects')">
+            <img class="img_icon" src="projects_icon.png">
+            PROJECTS      
+        </div>
+        <div class="tab" [ngClass]="{'active': isActiveTab('/concepts')}" (click)="switchTab('concepts')">
+            <img class="img_icon" src="concept_icon.png">
+            CONCEPTS
+        </div>
+        <div class="tab" [ngClass]="{'active': isActiveTab('/blogs')}" (click)="switchTab('blogs')">
+            <img class="img_icon" src="blog_icon.png">
+            BLOGS
+        </div>
+        <div class="tab" [ngClass]="{'active': isActiveTab('/contact')}" (click)="switchTab('contact')">
+            <img class="img_icon" src="contact_icon.png" width="19px">
+            CONTACT
+        </div>
+    </div>
+</div>

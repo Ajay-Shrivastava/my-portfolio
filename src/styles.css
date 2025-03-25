@@ -7,4 +7,9 @@ body, html {
     /* background: linear-gradient(140deg, #ffdf61, #53d7ff); */
     background: linear-gradient(140deg, #1dc7dd, antiquewhite 45%);
     background-attachment: fixed;
+    user-select: none;
   }
+
+.no-scroll {
+    overflow: hidden;
+}

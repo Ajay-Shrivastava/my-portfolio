@@ -1,29 +1,89 @@
-import { NgClass } from '@angular/common';
+import { NgClass, NgFor, NgIf, NgSwitch, NgSwitchCase, NgTemplateOutlet } from '@angular/common';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [NgClass],
+  imports: [NgIf, NgFor, NgTemplateOutlet, NgSwitch, NgSwitchCase, NgClass],
   templateUrl: './about.component.html',
   styleUrl: './about.component.css'
 })
 export class AboutComponent {
 
-  constructor(private router: Router){}
+  skills: string[] = [
+    '.NET',
+    'C#',
+    'Angular',
+    'Azure',
+    'Azure Devops',
+    'GitHub',
+    'GitHub Actions',
+    'Terraform',
+    'Kubernetes',
+    'Docker',
+    'Dapr',
+    'SQL'
+  ]
 
-  switchTab(page: string) {
-    if(page === 'home') {
-      this.router.navigate([page], { queryParams: { isPageSwitched: 'true' }, browserUrl: '/home' });
-    } else {
-    this.router.navigate([page]);
+  skillsImage: Record<string, string> = {
+    '.NET': 'Skills/dotnet.png',
+    'C#': 'Skills/c-sharp.png',
+    'Angular': 'Skills/angular.png',
+    'Azure': 'Skills/microsoft-azure.png',
+    'Azure Devops': 'Skills/azure-devops.png',
+    'GitHub': 'Skills/github.png',
+    'GitHub Actions': 'Skills/githubactions.png',
+    'Terraform': 'Skills/terraform.png',
+    'Kubernetes': 'Skills/kubernetes.png',
+    'Docker': 'Skills/docker.png',
+    'Dapr': 'Skills/dapr.svg',
+    'SQL': 'Skills/sql.png'
+  };
+
+  isDialogOpen: boolean = true;
+  selectedSkill: string = 'C#';
+  selectedSkillImage: string = '';
+
+  openDialog(skill : string) {
+    this.selectedSkill = skill;
+    this.selectedSkillImage = this.skillsImage[skill];
+    this.isDialogOpen = true;
+    document.body.classList.add('no-scroll');
+  }
+
+  closeDialog() {
+    this.isDialogOpen = false;
+    document.body.classList.remove('no-scroll');
+  }
+
+  isLastSelectedSkill() {
+    if (this.selectedSkill === this.skills[this.skills.length - 1]) {
+      return true;
+    }
+    return false;
+  }
+
+  isFirstSelectedSkill() {
+    if (this.selectedSkill === this.skills[0]) {
+      return true;
+    }
+    return false;
+  }
+
+  previousSkill() {
+    let currentSkillIndex = this.skills.indexOf(this.selectedSkill);
+    if (currentSkillIndex > 0) {
+      this.selectedSkill = this.skills[currentSkillIndex - 1];
+      this.selectedSkillImage = this.skillsImage[this.selectedSkill];
     }
   }
 
-  isActiveTab(page: string): boolean {
-    console.log(this.router.url);
-    return this.router.url === page;
+  nextSkill() {
+    let currentSkillIndex = this.skills.indexOf(this.selectedSkill);
+    if (currentSkillIndex < this.skills.length - 1) {
+      this.selectedSkill = this.skills[currentSkillIndex + 1];
+      this.selectedSkillImage = this.skillsImage[this.selectedSkill]
+    }
   }
 
 }

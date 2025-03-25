@@ -1,32 +1,3 @@
-<div class="header">
-    <div class="tabs">
-        <div class="tab" [ngClass]="{'active': isActiveTab('/home')}"  (click)="switchTab('home')">
-            <img class="img_icon" src="home_icon.png">
-            HOME      
-        </div>
-        <div class="tab" [ngClass]="{'active': isActiveTab('/about')}" (click)="switchTab('about')">
-            <img class="img_icon" src="person_icon.png" width="24px">
-            ABOUT      
-        </div>
-        <div class="tab" [ngClass]="{'active': isActiveTab('/projects')}" (click)="switchTab('projects')">
-            <img class="img_icon" src="projects_icon.png">
-            PROJECTS      
-        </div>
-        <div class="tab" [ngClass]="{'active': isActiveTab('/concepts')}" (click)="switchTab('concepts')">
-            <img class="img_icon" src="concept_icon.png">
-            CONCEPTS
-        </div>
-        <div class="tab" [ngClass]="{'active': isActiveTab('/blogs')}" (click)="switchTab('blogs')">
-            <img class="img_icon" src="blog_icon.png">
-            BLOGS
-        </div>
-        <div class="tab" [ngClass]="{'active': isActiveTab('/contact')}" (click)="switchTab('contact')">
-            <img class="img_icon" src="contact_icon.png" width="19px">
-            CONTACT
-        </div>
-    </div>
-</div>
-
 <div class="pagecontent">
     <div class="aboutme">
         <img class="personImg" src="person.png" width="20%">
@@ -39,61 +10,106 @@
 <div class="skills">
     <span class="skilltitle">SKILLS</span>
     <div class="skill">
-        <div class="skillCard">
-            <img class="skillimg" src="#" width="50px">
-            <span class="skillname">.NET</span>
-        </div>
-        <div class="skillCard">
-            <img class="skillimg" src="#" width="50px">
-            <span class="skillname">Angular</span>
-        </div>
-        <div class="skillCard">
-            <img class="skillimg" src="#" width="50px">
-            <span class="skillname">Azure</span>
-        </div>
-        <div class="skillCard">
-            <img class="skillimg" src="#" width="50px">
-            <span class="skillname">Azure Devops</span>
-        </div>
-        <div class="skillCard">
-            <img class="skillimg" src="#" width="50px">
-            <span class="skillname">Docker</span>
-        </div>
-        <div class="skillCard">
-            <img class="skillimg" src="#" width="50px">
-            <span class="skillname">Dapr</span>
-        </div>
-        <div class="skillCard">
-            <img class="skillimg" src="#" width="50px">
-            <span class="skillname">C#</span>
-        </div>
-        <div class="skillCard">
-            <img class="skillimg" src="#" width="50px">
-            <span class="skillname">GitHub</span>
-        </div>
-        <div class="skillCard">
-            <img class="skillimg" src="#" width="50px">
-            <span class="skillname">GitHub Actions</span>
-        </div>
-        <div class="skillCard">
-            <img class="skillimg" src="#" width="50px">
-            <span class="skillname">Terraform</span>
-        </div>
-        <div class="skillCard">
-            <img class="skillimg" src="#" width="50px">
-            <span class="skillname">Kubernetes</span>
-        </div>
-        <div class="skillCard">
-            <img class="skillimg" src="#" width="50px">
-            <span class="skillname">SQL</span>
-        </div>
-        <div class="skillCard">
-            <img class="skillimg" src="#" width="50px">
-            <span class="skillname">LINQ</span>
-        </div>
-        <div class="skillCard">
-            <img class="skillimg" src="#" width="50px">
-            <span class="skillname">Entity Framework</span>
+        <div class="skillCard" *ngFor="let skill of skills" (click)="openDialog(skill)">
+            <img class="skillimg" src={{skillsImage[skill]}}>
+            <span class="skillname">{{skill}}</span>
         </div>
     </div>
 </div>
+
+<div *ngIf="isDialogOpen" class="skillsDialog">
+    <div class="navigate" [ngClass]="{'left' : isFirstSelectedSkill()}" (click)="previousSkill()"><</div>
+    <div class="SkillDetails" [ngSwitch]="selectedSkill">
+        <img class="skillDetailImg" src={{skillsImage[selectedSkill]}}>
+        <div class="skillDetailsText">
+            <div *ngSwitchCase="'.NET'">
+                <ng-container *ngTemplateOutlet="DotNetTemplate"></ng-container>
+            </div>
+            <div *ngSwitchCase="'C#'">
+                <ng-container *ngTemplateOutlet="CSharpTemplate"></ng-container>
+            </div>
+            <div *ngSwitchCase="'Angular'">
+                <ng-container *ngTemplateOutlet="AngularTemplate"></ng-container>
+            </div>
+            <div *ngSwitchCase="'Azure'">
+                <ng-container *ngTemplateOutlet="AzureTemplate"></ng-container>
+            </div>
+            <div *ngSwitchCase="'Azure Devops'">
+                <ng-container *ngTemplateOutlet="AzureDevopsTemplate"></ng-container>
+            </div>
+            <div *ngSwitchCase="'GitHub'">
+                <ng-container *ngTemplateOutlet="GithubTemplate"></ng-container>
+            </div>
+            <div *ngSwitchCase="'GitHub Actions'">
+                <ng-container *ngTemplateOutlet="GithubActionsTemplate"></ng-container>
+            </div>
+            <div *ngSwitchCase="'Terraform'">
+                <ng-container *ngTemplateOutlet="TerraformTemplate"></ng-container>
+            </div>
+            <div *ngSwitchCase="'Kubernetes'">
+                <ng-container *ngTemplateOutlet="KubernatesTemplate"></ng-container>
+            </div>
+            <div *ngSwitchCase="'Docker'">
+                <ng-container *ngTemplateOutlet="DockerTemplate"></ng-container>
+            </div>
+            <div *ngSwitchCase="'Dapr'">
+                <ng-container *ngTemplateOutlet="DaprTemplate"></ng-container>
+            </div>
+            <div *ngSwitchCase="'SQL'">
+                <ng-container *ngTemplateOutlet="SqlTemplate"></ng-container>
+            </div>
+        </div>
+        <div class="closeDialog" (click)="closeDialog()">
+            <img src="Cross.png" width="30px" style="filter: invert();">
+        </div>
+    </div>
+    <div class="navigate" [ngClass]="{'right' : isLastSelectedSkill()}" (click)="nextSkill()" >></div>
+</div>
+
+<ng-template #DotNetTemplate>
+        <span>I have been working with C# for the past 5 years. I have worked on many projects using C# and have gained a lot of experience. I am very comfortable working with C# and I love to learn new things about it.</span>
+</ng-template>
+
+<ng-template #CSharpTemplate>
+        <span>I have been working with C# for the past 5 years. I have worked on many projects using C# and have gained a lot of experience. I am very comfortable working with C# and I love to learn new things about it.</span>
+</ng-template>
+
+<ng-template #AngularTemplate>
+        <span>I have been working with Angular for the past 3 years. I have worked on many projects using Angular and have gained a lot of experience. I am very comfortable working with Angular and I love to learn new things about it.</span>
+</ng-template>
+
+<ng-template #AzureTemplate>
+        <span>I have been working with C# for the past 5 years. I have worked on many projects using C# and have gained a lot of experience. I am very comfortable working with C# and I love to learn new things about it.</span>
+</ng-template>
+
+<ng-template #AzureDevopsTemplate>
+        <span>I have been working with C# for the past 5 years. I have worked on many projects using C# and have gained a lot of experience. I am very comfortable working with C# and I love to learn new things about it.</span>
+</ng-template>
+
+<ng-template #GithubTemplate>
+        <span>I have been working with C# for the past 5 years. I have worked on many projects using C# and have gained a lot of experience. I am very comfortable working with C# and I love to learn new things about it.</span>
+</ng-template>
+
+<ng-template #GithubActionsTemplate>
+        <span>I have been working with C# for the past 5 years. I have worked on many projects using C# and have gained a lot of experience. I am very comfortable working with C# and I love to learn new things about it.</span>
+</ng-template>
+
+<ng-template #TerraformTemplate>
+        <span>I have been working with C# for the past 5 years. I have worked on many projects using C# and have gained a lot of experience. I am very comfortable working with C# and I love to learn new things about it.</span>
+</ng-template>
+
+<ng-template #KubernatesTemplate>
+        <span>I have been working with C# for the past 5 years. I have worked on many projects using C# and have gained a lot of experience. I am very comfortable working with C# and I love to learn new things about it.</span>
+</ng-template>
+
+<ng-template #DockerTemplate>
+        <span>I have been working with C# for the past 5 years. I have worked on many projects using C# and have gained a lot of experience. I am very comfortable working with C# and I love to learn new things about it.</span>
+</ng-template>
+
+<ng-template #DaprTemplate>
+        <span>I have been working with C# for the past 5 years. I have worked on many projects using C# and have gained a lot of experience. I am very comfortable working with C# and I love to learn new things about it.</span>
+</ng-template>
+
+<ng-template #SqlTemplate>
+        <span>I have been working with C# for the past 5 years. I have worked on many projects using C# and have gained a lot of experience. I am very comfortable working with C# and I love to learn new things about it.</span>
+</ng-template>

@@ -1,26 +1,3 @@
-<div class="header" [ngClass]="{'switchpage': isSwitchedPage()}">
-    <div class="tabs">
-        <div class="tab active">
-            HOME      
-        </div>
-        <div class="tab" >
-            ABOUT      
-        </div>
-        <div class="tab">
-            PROJECTS      
-        </div>
-        <div class="tab">
-            CONCEPTS
-        </div>
-        <div class="tab">
-            CONTACT
-        </div>
-        <div class="tab">
-            BLOGS
-        </div>
-    </div>
-</div>
-
 <div class="pagecontent">
     <div class="leftcontent">
         <div class="contenttxt">
@@ -38,10 +15,10 @@
                 <div class="card" (click)="swichPage('concepts')">
                     <h3>CONCEPTS</h3>
                 </div>
-                <div class="card" (click)="swichPage('contect')">
+                <div class="card" (click)="swichPage('contact')">
                     <h3>CONTACT ME</h3>
                 </div>
-                <div class="card" (click)="swichPage('blog')">
+                <div class="card" (click)="swichPage('blogs')">
                     <h3>BLOG</h3>
                 </div>
             </div>
