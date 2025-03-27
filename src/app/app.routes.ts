@@ -14,4 +14,5 @@ export const routes: Routes = [
     { path: 'concepts', component: ConceptsComponent },
     { path: 'blogs', component: BlogsComponent },
     { path: 'contact', component: ContactComponent },
+    { path: '**', redirectTo: 'home' } // Wildcard route for a 404 page
 ];
