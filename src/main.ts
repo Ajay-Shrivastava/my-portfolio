@@ -4,10 +4,25 @@ import { AppComponent } from './app/app.component';
 
 // Check for a stored route (redirected from 404.html)
 const storedPath = sessionStorage.getItem('redirectPath');
+const validPaths = [
+  'home',
+  'about',
+  'projects',
+  'concepts',
+  'blogs',
+  'contact'
+];
+
 if (storedPath) {
   sessionStorage.removeItem('redirectPath'); // Remove it after use
   sessionStorage.removeItem('redirected'); // Allow future redirects
-  history.replaceState({}, '', storedPath); // Restore correct URL
+  var storedPathArray = storedPath.split('/');
+  if( validPaths.includes(storedPathArray[1])) {
+    history.replaceState({}, '', storedPath); // Restore correct URL
+  }
+  else {
+    history.replaceState({}, '', '/my-portfolio/home'); // Redirect to home if invalid path
+  }
 }
 
 bootstrapApplication(AppComponent, appConfig)
