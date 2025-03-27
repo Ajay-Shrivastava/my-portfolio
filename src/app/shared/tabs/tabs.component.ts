@@ -29,7 +29,14 @@ export class TabsComponent {
           this.hideHeader = false;
           this.noHeader = true;
           this.previousUrl = event.url;
-        } else if (event.url === '/home' && this.previousUrl !== '/home') {
+        }
+        else if (event.url === '/' && this.previousUrl === '/home') {
+          this.showHeader = false
+          this.hideHeader = false;
+          this.noHeader = true;
+          this.previousUrl = event.url;
+        }
+        else if (event.url === '/home' && this.previousUrl !== '/home') {
           this.showHeader = false;
           this.hideHeader = true;
           this.noHeader = false;
@@ -41,6 +48,7 @@ export class TabsComponent {
           this.noHeader = false;
           this.previousUrl = event.url;
         }
+
       }
     });
   }
