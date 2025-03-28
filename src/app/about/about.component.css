@@ -137,12 +137,12 @@
 }
 
 .SkillDetails {
-    background: white;
+    background: rgb(255, 245, 224);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 80%;
-    max-width: 800px;
+    max-width: 1100px;
     text-align: center;
     position: relative;
     display: flex;
@@ -215,6 +215,10 @@
 
 .skillDetailsText {
     padding: 20px;
-    font-size: 20px;
+    font-size: 18px;
+    word-spacing: auto;
     text-align: justify;
+    font-family: "PT Serif", serif;
+    font-weight: 400;
+    font-style: normal;
 }
