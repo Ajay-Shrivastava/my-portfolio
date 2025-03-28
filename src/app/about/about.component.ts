@@ -40,7 +40,7 @@ export class AboutComponent {
     'SQL': 'Skills/sql.png'
   };
 
-  isDialogOpen: boolean = true;
+  isDialogOpen: boolean = false;
   selectedSkill: string = 'C#';
   selectedSkillImage: string = '';
 
